@@ -1,0 +1,45 @@
+
+---Downloaded files---
+The import files for: Business / Portfolio (Block Editor) were successfully downloaded!
+Initial max execution time = 30
+Files info:
+Site URL = http://wpwsl.local
+Data file = /var/www/wpwsl.local/wp-content/uploads/2025/02/demo-content-import-file_2025-02-27__01-00-32.xml
+Widget file = /var/www/wpwsl.local/wp-content/uploads/2025/02/demo-widgets-import-file_2025-02-27__01-00-32.json
+Customizer file = /var/www/wpwsl.local/wp-content/uploads/2025/02/demo-customizer-import-file_2025-02-27__01-00-32.dat
+
+
+------
+New AJAX call!
+
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Боковая панель : 
+
+Поиск - Search - Imported
+Блок - No Title - Imported
+Блок - No Title - Imported
+
+Подвал 1 : 
+
+Блок - No Title - Imported
+
+Подвал 2 : 
+
+Блок - No Title - Imported
+
+Подвал 3 : 
+
+Блок - No Title - Imported
+
+
+
+---Importing customizer settings---
+Customizer settings import finished!
+
+---inspiro_starter_sites/after_import---
+
