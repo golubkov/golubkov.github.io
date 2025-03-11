@@ -1634,9 +1634,7 @@ p>object:only-child {
         font-size: 20px;
         background-color: #EEE;
 }
-.timetablewrapper .box.last {
-    border-bottom: 1px solid #EEE;
-  }
+
 
 /*@media screen and (min-width: 500px) {
 .timetablewrapper .box {
@@ -1656,6 +1654,9 @@ p>object:only-child {
 @media screen and (min-width: 992px) {
 .timetablewrapper .box, .timetablewrapper .box.last {
     flex: 0 0 20%;
+  }
+.timetablewrapper .box.last {
+    border-bottom: 1px solid #999;
   }
 }
 
