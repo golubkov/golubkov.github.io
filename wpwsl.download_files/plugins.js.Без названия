@@ -529,15 +529,16 @@ if ( typeof define === 'function' && define.amd ) {
 (function($) {
 
   if(!$) {
+    console.log("44444");
     return;
   }
 
   ////////////
   // Plugin //
   ////////////
-
   $.fn.headroom = function(option) {
-    console.log("hi");
+    console.log(option);
+    console.log("hi2222");
     return this.each(function() {
       var $this   = $(this),
         data      = $this.data('headroom'),
@@ -566,11 +567,10 @@ if ( typeof define === 'function' && define.amd ) {
 
   $('[data-headroom]').each(function() {
     var $this = $(this);
-        console.log("hi");
     $this.headroom($this.data());
   });
 
-}(window.Zepto || window.jQuery));
+}(window.jQuery));
 /*!
  * jQuery.scrollTo
  * Copyright (c) 2007 Ariel Flesler - aflesler ○ gmail • com | https://github.com/flesler
