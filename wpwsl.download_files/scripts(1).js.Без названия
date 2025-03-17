@@ -1,11 +1,34 @@
 jQuery(document).ready(function($){
-var elem = $(".motion-effects-element");
+	var width = $(".feedback_item").width();
+	var margin = parseInt($(".programs-block .col-lg-4").css('padding-left'));
+	if ($(window).width()<768) {
+		margin=1;
+	}
+	width = width - margin;
+	$(".slider").bxSlider({
+        slideWidth : width,
+        minSlides : 1,
+        maxSlides : 2,
+        moveSlides : 1,
+        slideMargin : margin*2,
+        pager : true,
+        infiniteLoop: true
+    });
+
+
+    var $formGroup = $('#formGroup');
+	$formGroup.on('show.bs.collapse','.collapse', function() {
+		$('html, body').animate({
+                    scrollTop: $formGroup.offset().top  - $("#site-navigation").outerHeight()
+                }, 200);
+	    $formGroup.find('.collapse.show').collapse('hide');
+	    
+	});
+
+	//transform main title start
+	var elem = $(".motion-effects-element");
 	
 	elem.show();
-	// elem.css({
-	// 	  'transform'         : 'scale(0.3)',
-	// 	});
-
 	elem.animate({transform: 1},
 		{
 		duration:2000,
@@ -14,31 +37,20 @@ var elem = $(".motion-effects-element");
 			$(this).css('transform','scale('+now+')');
 			$(this).css('opacity',''+now+'');
 		}
-		});
+	});
+	//transform main title end
 
-$.fn.isInViewport = function() {
-    var elementTop = $(this).offset().top;
-    var elementBottom = elementTop + $(this).outerHeight();
+// $.fn.isInViewport = function() {
+//     var elementTop = $(this).offset().top;
+//     var elementBottom = elementTop + $(this).outerHeight();
 
-    var viewportTop = $(window).scrollTop();
-    var viewportBottom = viewportTop + $(window).height();
+//     var viewportTop = $(window).scrollTop();
+//     var viewportBottom = viewportTop + $(window).height();
 
-    return elementBottom > viewportTop && elementTop < viewportBottom;
-};
+//     return elementBottom > viewportTop && elementTop < viewportBottom;
+// };
 
-// function scrolListener(e){
-//   var screenTop = $(window).scrollTop();
-//   var screenBottom = screenTop + innerHeight;
-//   var textTop = $("h2").offset().top
-//   console.log(textTop + "-" + screenBottom + "-" + screenTop);
-//   if ( textTop < screenBottom && textTop < screenTop)
-//   {
-//     $("h2").addClass("showtext");
-//   } else {
-//   	$("h2").removeClass("showtext");
-//   }
-  
-// }
+	// fire titles by class start 
 var headerheight = -Math.abs($("#site-navigation").outerHeight() + 20) + "px";
 const options = {
   root: null, // default, use viewport
@@ -57,27 +69,29 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('h2');
 hiddenElements.forEach((element) => observer.observe(element));
+	// fire titles by class end 
 
-
+	//scroll main title with coef start
 document.addEventListener('scroll', function (event) {
+
+	if (($(window).width() / parseFloat($("body").css("font-size"))) < "48.875") {
+		var coef = -5;
+	} else {
+		var coef = -25;	
+	}
 
 	let scrolled = $(window).scrollTop();
 	let scrolledElem = $(".ws_main_photo").offset().top + $(".ws_main_photo").height();
-	elem.css('top', (0 + (scrolled * .7)) + 'px');
-
-	// scrolListener();
-	// if ((scrolledElem -scrolled)/1000 < 1) {
-		// console.log(scrolledElem/scrolled - 2);
-	// 			elem.css('opacity', ((scrolledElem -scrolled)/1000));
-	// }
-
-
-	// distance      = ($("h2").offset().top - scrolled);
-
-	// console.log($("h2").offset().top + "-" + distance + "-" + $("#site-navigation").outerHeight());
-
+	if ((coef + (scrolled/scrolledElem))> coef) {
+		elem.css('top', (coef + (scrolled/scrolledElem)*90) + '%');
+	}
 }, true);
+	//scroll main title with coef end
 
+$('.jarallax').jarallax({
+	imgPosition:'0% 100%',
+
+});
 
 
 $("#menu-primary a").click(function(e) {
